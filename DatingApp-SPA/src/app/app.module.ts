@@ -11,7 +11,7 @@ import { NgxGalleryModule } from 'ngx-gallery';
 import {TimeAgoPipe} from 'time-ago-pipe';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
-
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 import { AppComponent } from './app.component';
@@ -34,7 +34,8 @@ import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { AuthGuard } from './_guards/auth.guard';
 import { PhotoEditorComponent } from './member/photo-editor/photo-editor.component';
-import { FileUploadModule } from 'ng2-file-upload';
+import { MessagesResolver } from './_resolvers/messages.resolver';
+import { MemberMessagesComponent } from './member/member-messages/member-messages.component';
 
 
 export function tokenGetter() {
@@ -62,7 +63,8 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       MemberDetailComponent,
       MemberEditComponent,
       PhotoEditorComponent,
-      TimeAgoPipe
+      TimeAgoPipe,
+      MemberMessagesComponent
    ],
    imports: [
       BrowserModule,
@@ -93,6 +95,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       MemberListResolver,
       MemberEditResolver,
       ListsResolver,
+      MessagesResolver,
       PreventUnsavedChanges,
       AuthGuard,
       { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
